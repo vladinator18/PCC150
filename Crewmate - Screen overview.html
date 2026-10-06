@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Crewmate - Screen overview</title>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#1448C8;--blue-d:#0E3596;--blue-l:#E6EDFC;--orange:#F26B1D;--orange-l:#FDEBDD;--ink:#0F1E4A;--mute:#52608A;--line:#D3DCF2;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+html{height:100%}
+body{margin:0;background:#fff;color:var(--ink);font-family:Figtree,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;line-height:1.45}
+svg.i{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.wrap{max-width:1180px;margin:0 auto;padding:36px 20px 60px}
+h1{font-size:30px;margin:0 0 6px;letter-spacing:-.02em}
+.lead{color:var(--mute);margin:0 0 10px;max-width:64ch}
+.key{display:flex;gap:16px;flex-wrap:wrap;margin:0 0 30px;font-size:14px;color:var(--mute)}
+.key span{display:inline-flex;gap:6px;align-items:center}
+.sw{width:14px;height:14px;border-radius:4px;border:2px solid var(--line)}
+.screens{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:36px 28px}
+.lab{display:flex;gap:10px;align-items:flex-start;margin-bottom:10px}
+.num{background:var(--orange);color:#fff;font-weight:700;border-radius:8px;width:28px;height:28px;display:grid;place-items:center;flex:none}
+.lab b{display:block;font-size:17px;line-height:1.2}
+.lab span{font-size:14px;color:var(--mute)}
+.frame{border:2px solid var(--blue);border-radius:14px;overflow:hidden;background:#fff;font-size:12.5px}
+.top{display:flex;align-items:center;gap:10px;padding:8px 12px;border-bottom:2px solid var(--line);flex-wrap:wrap}
+.lg{display:flex;gap:6px;align-items:center;color:var(--blue);font-weight:700;font-size:14px}
+.lg i{background:var(--orange);color:#fff;width:20px;height:20px;border-radius:6px;display:grid;place-items:center}
+.nv{display:flex;gap:2px;margin-left:auto}
+.nv span{padding:3px 7px;border-radius:6px;color:var(--blue);font-weight:500;font-size:11.5px}
+.nv span.on{background:var(--blue);color:#fff}
+.body{padding:14px}
+.body h4{margin:0 0 3px;font-size:16px;letter-spacing:-.01em}
+.m{color:var(--mute);font-size:12px}
+.hero{border:2px solid var(--blue);border-radius:10px;padding:10px;display:flex;justify-content:space-between;gap:8px;align-items:center;margin-bottom:10px}
+.st{display:flex;gap:6px}.st div{background:var(--blue-l);border-radius:8px;padding:4px 10px;text-align:center;font-size:11px;color:var(--mute)}.st div:last-child{background:var(--orange-l)}.st b{display:block;font-size:16px;color:var(--blue-d)}.st div:last-child b{color:var(--orange)}
+.row{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.chip{border:2px solid var(--line);border-radius:999px;padding:1px 9px;font-weight:500;font-size:11.5px}
+.chip.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.seg{display:inline-flex;border:2px solid var(--blue);border-radius:8px;overflow:hidden;font-weight:700;font-size:11.5px}
+.seg span{padding:3px 9px;color:var(--blue)}.seg span.on{background:var(--blue);color:#fff}
+.card{border:2px solid var(--line);border-radius:10px;padding:10px;margin-top:8px;display:flex;flex-direction:column;gap:6px}
+.card h5{margin:0;font-size:14px}
+.tag{background:var(--blue-l);color:var(--blue-d);border-radius:5px;padding:1px 6px;font-size:11px;font-weight:500}
+.bd{display:inline-flex;gap:4px;align-items:center;font-size:11px;font-weight:700;border-radius:5px;padding:1px 7px;color:#fff;background:var(--blue)}
+.bd.o{background:var(--orange)}
+.btn{display:inline-flex;gap:5px;align-items:center;background:var(--orange);color:#fff;font-weight:700;border-radius:8px;padding:5px 11px;font-size:12px}
+.btn.s{background:#fff;color:var(--blue);border:2px solid var(--blue);padding:3px 10px}
+.foot{display:flex;justify-content:space-between;align-items:center;border-top:2px solid var(--line);padding-top:6px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.th{height:58px;border-radius:7px;background:var(--blue);color:#fff;display:grid;place-items:center}.th.o{background:var(--orange)}.th.l{background:var(--blue-l);color:var(--blue-d)}
+.th svg{width:22px;height:22px}
+.fl{font-weight:700;font-size:12px;margin-bottom:2px}
+.inp{border:2px solid var(--line);border-radius:7px;padding:5px 8px;color:var(--mute);font-size:12px}
+.inp.tall{height:46px}
+.pn{border:2px solid var(--line);border-radius:10px;padding:10px}
+.ck{display:flex;gap:6px;align-items:center;margin-top:4px}.ck.p svg{color:var(--blue)}.ck.f svg{color:var(--orange)}
+.sf{display:grid;gap:8px}
+.sf .ic{width:26px;height:26px;border-radius:7px;background:var(--orange);color:#fff;display:grid;place-items:center}.sf .ic.b{background:var(--blue)}
+.sf .card{margin:0;flex-direction:row;gap:10px;align-items:flex-start}
+.sf p{margin:2px 0 0;color:var(--mute);font-size:11.5px}
+.gap{display:grid;gap:10px}
+.empty{border:2px dashed var(--line);border-radius:10px;padding:10px;text-align:center;color:var(--mute)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Crewmate screen overview</h1>
+<p class="lead">Student project collaboration for Mapua University. A mockup of the five main screens. All names and content are placeholders.</p>
+<div class="key"><span><i class="sw" style="background:#1448C8;border-color:#1448C8"></i>Blue: structure and trust</span><span><i class="sw" style="background:#F26B1D;border-color:#F26B1D"></i>Orange: actions and attention</span><span><i class="sw" style="background:#fff"></i>White: background</span></div>
+<div class="screens" id="s"></div>
+</div>
+<script>
+const P={
+folder:'<path d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>',
+users:'<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 3-6 6.5-6s6.5 2.4 6.5 6"/><path d="M16 4.5a3.5 3.5 0 010 7M18 14c2.2.6 3.5 2.5 3.5 6"/>',
+image:'<rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 9"/>',
+plus:'<path d="M12 5v14M5 12h14"/>',
+shield:'<path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/>',
+send:'<path d="M21 3L10 14M21 3l-7 18-4-7-7-4z"/>',
+check:'<path d="M5 12.5l4.5 4.5L19 7"/>',
+x:'<path d="M6 6l12 12M18 6L6 18"/>',
+clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+flag:'<path d="M5 21V4M5 4h11l-2 4 2 4H5"/>',
+copy:'<rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 012-2h9"/>',
+eye:'<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
+mail:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>',
+cal:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>'};
+const I=n=>`<svg class="i" viewBox="0 0 24 24" aria-hidden="true">${P[n]}</svg>`;
+const tabs=['Projects','Creators','My portfolio','Post a project','Trust and safety'];
+const frame=(on,body)=>`<div class="frame"><div class="top"><div class="lg"><i>${I('users')}</i>Crewmate</div><div class="nv">${tabs.map((t,n)=>`<span class="${n===on?'on':''}">${t}</span>`).join('')}</div></div><div class="body">${body}</div></div>`;
+const tg=a=>a.map(x=>`<span class="tag">${x}</span>`).join('');
+const proj=(t,by,d,sk,wait)=>`<div class="card"><div class="row" style="justify-content:space-between"><span class="bd ${wait?'o':''}">${I(wait?'clock':'shield')}${wait?'Pending review':'Reviewed'}</span><span class="m">${I('cal')} ${d}</span></div><h5>${t}</h5><div class="m">${by}</div><div class="row">${tg(sk)}</div><div class="foot"><span class="m">${I('flag')} Report</span><span class="btn">${I('send')}Express interest</span></div></div>`;
+const cre=(n,r,c)=>`<div class="card" style="margin:0"><div class="th ${c}">${I('image')}</div><h5>${n}</h5><div class="m">${r}</div><span class="bd">${I('shield')}Originality checked</span></div>`;
+const fld=(l,h,t)=>`<div><div class="fl">${l}</div><div class="inp ${t?'tall':''}">${h}</div></div>`;
+const ck=(ok,t)=>`<div class="ck ${ok?'p':'f'}">${I(ok?'check':'x')}<span>${t}</span></div>`;
+const sf=(c,i,t,d)=>`<div class="card"><div class="ic ${c}">${I(i)}</div><div><b>${t}</b><p>${d}</p></div></div>`;
+const S=[
+['Projects','Browse open projects, filter by skill, and express interest.',frame(0,`<div class="hero"><div><h4>Mapua University projects</h4><span class="m">Every posting is reviewed first.</span></div><div class="st"><div><b>5</b>projects</div><div><b>12</b>spots</div></div></div><div class="row" style="margin-bottom:8px"><div class="seg"><span class="on">Mapua only</span><span>All schools</span></div></div><div class="row"><span class="chip on">Figma</span><span class="chip">Python</span><span class="chip">Writing</span><span class="chip">Layout</span></div>${proj('Intramuros heritage walk app','Maya Reyes, School of IT','Nov 15',['Mobile UI','Figma'])}${proj('Cardinal Tech Fair booth design','Jon Dela Cruz, School of Design','Dec 1',['3D Modeling','Layout'])}`)],
+['Creators','Browse student portfolios with originality badges.',frame(1,`<h4>Mapua student portfolios</h4><div class="m" style="margin-bottom:8px">Images, links and short descriptions.</div><div class="g2">${cre('Maya Reyes','Mobile designer','')}${cre('Jon Dela Cruz','3D and layout artist','o')}${cre('Kai Santos','Photographer','l')}${cre('Ana Villanueva','Graphic designer','')}</div>`)],
+['My portfolio','Build a profile and add works. New items wait for review.',frame(2,`<h4>My portfolio</h4><div class="gap" style="margin-top:8px"><div class="pn gap"><b>Your profile</b>${fld('What do you do?','Mobile designer')}${fld('Skills','Figma, Mobile UI')}<span class="btn s" style="justify-self:start">${I('check')}Save profile</span></div><div class="pn gap"><b>Add a work</b>${fld('Title','Heritage walk wireframes')}${fld('Short description','What is it, and what was your part?',1)}${fld('Link to the work','https://')}<span class="btn" style="justify-self:start">${I('plus')}Submit for review</span></div><div class="card" style="margin:0"><div class="th l">${I('image')}</div><span class="bd o">${I('clock')}Pending review</span><h5>Heritage walk wireframes</h5></div></div>`)],
+['Post a project','Describe the project and list the skills you need.',frame(3,`<h4>Post a project</h4><div class="m" style="margin-bottom:8px">Posting as a verified Mapua student.</div><div class="gap">${fld('Project title','What are you making?')}${fld('Short description','Goal, progress, and the help you need.',1)}${fld('Skills needed','Illustration, Layout')}<div class="g2">${fld('Open spots','2')}${fld('Deadline','Nov 30')}</div><div class="pn"><b>Automatic checks</b>${ck(1,'Complete posting')}${ck(1,'Content screen passed')}${ck(1,'Valid link to your own work')}${ck(0,'Too similar to an existing post')}</div><span class="btn" style="justify-self:start">${I('send')}Submit for review</span></div>`)],
+['Trust and safety','How copying, inappropriate content and unreliable posts are handled.',frame(4,`<h4>How we keep projects trustworthy</h4><div class="m" style="margin-bottom:8px">Automatic checks, human review, community reports.</div><div class="sf">${sf('','copy','Preventing copied work','Text and image similarity checks, source links required.')}${sf('b','eye','Blocking inappropriate content','Automatic screening, moderator queue, one-tap report.')}${sf('','shield','Reliable postings','Mapua email verification and a link to your own work.')}${sf('b','mail','Safe contact','Messages stay in the platform until the owner accepts.')}</div>`)]];
+document.getElementById('s').innerHTML=S.map((x,n)=>`<section><div class="lab"><div class="num">${n+1}</div><div><b>${x[0]}</b><span>${x[1]}</span></div></div>${x[2]}</section>`).join('');
+</script>
+</body>
+</html>
